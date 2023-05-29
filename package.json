@@ -1,0 +1,23 @@
+{
+  "name": "flight_tracker_assignment",
+  "version": "1.0.0",
+  "description": "This assignment is to show the use of Responsive layout with grid, flex, and media queries.\r Show a list of ongoing flights.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiceloVilakazi/Flight_Tracker_Assignment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SiceloVilakazi/Flight_Tracker_Assignment/issues"
+  },
+  "homepage": "https://github.com/SiceloVilakazi/Flight_Tracker_Assignment#readme",
+  "dependencies": {
+    "leaflet": "^1.9.4"
+  }
+}
