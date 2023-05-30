@@ -11,7 +11,7 @@ for (let i = 0; i < 20; i++) {
     lat: 0,
     long: 0,
   };
-  //Fix the dom manipulation
+
   const flightTable = document.createElement("tr");
   const flightNumber = document.createElement("td");
   flightNumber.innerText = flights[i][1];
