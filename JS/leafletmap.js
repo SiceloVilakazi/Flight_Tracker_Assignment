@@ -14,6 +14,7 @@ let flightIcon = L.icon({
   });
 
 export function flightHandler(coordinates) {
+  
   console.log(coordinates);
   let marker = L.marker([28.0473, 26.2041], { icon: flightIcon }).addTo(map);
   marker.setLatLng([coordinates.long, coordinates.lat]);
@@ -30,4 +31,3 @@ export function resetMapLocationView() {
     map.flyTo([lat, lon], 10);
     marker.setLatLng([lat, lon]);
   }
-///////////////needs to be sorted
