@@ -21,13 +21,3 @@ export function flightHandler(coordinates) {
 
   map.flyTo([coordinates.long, coordinates.lat], 11);
 }
-
-export function resetMapLocationView() {
-    map.flyTo([-35, 23], 2);
-  }
-  
-  export function setFlightLocation(lat = 0, lon = 0) {
-    console.log(lat, long);
-    map.flyTo([lat, lon], 10);
-    marker.setLatLng([lat, lon]);
-  }
