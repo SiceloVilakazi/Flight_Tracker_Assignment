@@ -2,13 +2,9 @@ import {GetFlights} from '../API/ApiService'
 import {setFlightCoordinates} from './leaftletmap'
 let flightList = document.getElementById('flight-table');
 
-
-
 export async function populateTable(){
     for(let i=0; i<4; i++){
         let lat:number=0, long:number=0;
-   
-
         const allFlights = await GetFlights();
 
     const flightTable = document.createElement("tr");
@@ -26,8 +22,6 @@ export async function populateTable(){
     lat = allFlights[i].latitude;
     long = allFlights[i].longitude;
 
-
     flightTable.addEventListener("click", () => setFlightCoordinates(lat,long));
-
     };
 }

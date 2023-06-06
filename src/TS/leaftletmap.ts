@@ -1,7 +1,6 @@
 import * as L from "leaflet";
 import icon from '../mediaContent/flight.png'
 
-
 let map = L.map("map").setView([28.0473, 26.2041], 2);
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
