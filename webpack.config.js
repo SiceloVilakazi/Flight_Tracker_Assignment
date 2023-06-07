@@ -2,49 +2,54 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
+    mode:'development',
     entry:{
-        home: path.resolve(__dirname,'index.js'),
+        home: path.resolve(__dirname,'src/index.ts'),
     },
     output:{
-        path:path.resolve(__dirname,'dist'),
-        filename:'[name].bundle.js',
-        clean:true,
-        assetModuleFilename:'[name][ext]'
+        chunkFilename: '[name].js',
+        filename: '[name].js'
     },
-    devtool:'source-map',
-    devServer:{
-        static:{
-            directory:path.resolve(__dirname,'dist')
+  devtool:'inline-source-map',
+  devServer:{
+    static:{
+        directory:path.resolve(__dirname,'dist')
+    },
+    open:true,
+    hot:true,
+    compress:true
+},
+  module: {
+    rules: [
+        {
+            test:/\.scss$/,
+            use:[
+                'style-loader',
+                'css-loader',
+                'sass-loader'
+            ],
         },
-        port:12345,
-        open:true,
-        hot:true,
-        compress:true
-    },
-    module:{
-        rules:[
-            {
-                test:/\.scss$/,
-                use:[
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ],
-            },
-            {
-                test:/\.(png|svg|jpg|gif)$/i,
-                type:'asset/resource'
-            },
-        ],
-    },
-    plugins:[
-        new HtmlWebpackPlugin({
-            title: 'Landing Page',
-            filename: 'index.html',
-            template: './index.html',
-            chunks:['home']
-        })
-    ]
-
-}
+        {
+            test:/\.(png|svg|jpg|gif)$/i,
+            type:'asset/resource'
+        },
+      {
+        test: /\.ts?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+  plugins:[
+    new HtmlWebpackPlugin({
+        title: 'Landing Page',
+        filename: 'index.html',
+        template: './index.html',
+        chunks:['home']
+    }),
+   
+]
+};
