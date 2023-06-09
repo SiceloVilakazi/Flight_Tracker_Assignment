@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,19 +12,22 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
-
+     <link href="/dist/output.css" rel="stylesheet">
  
     <title>Space Flights</title>
 </head>
 <body>
-    <div class="header">
-        <h1>Wolf Flight Tracker</h1>
+    <div class="p-6 max-w-d mx-auto bg-blue-100 rounded-xl shadow-lg flex items-center space-x-4">
+        <div class="flex">
+            <h1 class="text-xl font-medium text-black text-center">Wolf flight tracker</h1>
+          </div>
+        </div>
     </div>
 
-    <div class="flights-container">
+    <div>
         <div>
-            <table id="flight-table">
-                <tr class="flight-table-row">
+            <table class="table-auto">
+                <tr>
                     <th>Flight number</th>
                     <th>Country</th>
                 </tr>
@@ -41,24 +44,5 @@
     
    
 </body>
-</html> -->
-
-<!doctype html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/dist/output.css" rel="stylesheet">
-</head>
-<body>
-
-
-  <div class="p-6 max-w-d mx-auto bg-blue-100 rounded-xl shadow-lg flex items-center space-x-4">
-   
-    <div class="flex items-center">
-      <div class="text-xl font-medium text-black text-center">Wolf flight tracker</div>
-      <!-- <p class="text-slate-500">You have a new message!</p> -->
-    </div>
-  </div>
-</body>
 </html>
+

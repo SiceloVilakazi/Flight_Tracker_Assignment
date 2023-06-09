@@ -1,6 +1,6 @@
 import {FlightDetails} from '../Interfaces/FlightDetails';
 import { Observable, from, timer } from 'rxjs';
-import {switchMap,distinctUntilChanged } from 'rxjs/operators';
+import {switchMap } from 'rxjs/operators';
 
 export  function GetFlights() :Observable<FlightDetails[]>
 {

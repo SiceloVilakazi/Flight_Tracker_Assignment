@@ -1,55 +1,49 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    mode:'development',
-    entry:{
-        home: path.resolve(__dirname,'src/index.ts'),
-    },
-    output:{
-        chunkFilename: '[name].js',
-        filename: '[name].js'
-    },
-  devtool:'inline-source-map',
-  devServer:{
-    static:{
-        directory:path.resolve(__dirname,'dist')
-    },
-    open:true,
-    hot:true,
-    compress:true
-},
+  entry: "./src/index.ts",
+  mode: "development",
+  devServer: {
+    watchFiles: ["src/**/*"],
+  },
   module: {
     rules: [
-        {
-            test:/\.scss$/,
-            use:[
-                'style-loader',
-                'css-loader',
-                'sass-loader'
-            ],
-        },
-        {
-            test:/\.(png|svg|jpg|gif)$/i,
-            type:'asset/resource'
-        },
       {
-        test: /\.ts?$/,
-        use: 'ts-loader',
+        test: /\.tsx?$/,
+        use: "ts-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/,
+        include: path.resolve(__dirname, "src"),
+        use: ["style-loader", "css-loader", "postcss-loader"],
+      },
+      {
+        test:/\.scss$/,
+        use:[
+            'style-loader',
+            'css-loader',
+            'sass-loader'
+        ],
+    },
+    {
+        test:/\.(png|svg|jpg|gif)$/i,
+        type:'asset/resource'
+    },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: [".tsx", ".ts", ".js"],
   },
-  plugins:[
-    new HtmlWebpackPlugin({
-        title: 'Landing Page',
-        filename: 'index.html',
-        template: './index.html',
-        chunks:['home']
+  plugins: [
+    new CopyPlugin({
+      patterns: [{ from: "src/index.html", to: "index.html" }],
     }),
-   
-]
+  ],
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    clean: true,
+  },
 };

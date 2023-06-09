@@ -7,10 +7,20 @@ let flights :FlightDetails[] = [];
 
 GetFlights().subscribe((result)=>{
     flights=result;
-     populateTable(flights);
+    if(flights.length>0)
+    {
+        populateTable(flights);
+    }
 });
 
 export  function populateTable(flights:FlightDetails[]){
+
+flights.forEach(element=>{
+
+}
+
+)
+
     for(let i=0; i<4; i++){
         let lat:number=0, long:number=0;
 
