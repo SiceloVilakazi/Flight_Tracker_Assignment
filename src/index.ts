@@ -1,4 +1,3 @@
-import './CSS/style.scss'
 import {populateTable} from  "./TS/getFlights";
 import {setFlightCoordinates} from "./TS/leaftletmap";
 
