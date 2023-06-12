@@ -1,16 +1,7 @@
-import {GetFlights} from '../API/ApiService'
 import { FlightDetails } from '../Interfaces/FlightDetails';
 import {setFlightCoordinates} from './leaftletmap'
 let flightList = document.getElementById('flight-table');
 
-let flights :FlightDetails[] = [];
-
-GetFlights().subscribe((result)=>{
-    flights=result;
-
-    if(flightList)
-     populateTable(flights);
-});
 
 export  function populateTable(flights:FlightDetails[]){
     for(let i=0; i<4; i++){
