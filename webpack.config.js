@@ -2,10 +2,20 @@ const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.ts",
+  entry: 
+  {
+    home: path.resolve(__dirname,'src/index.ts'),
+  },
   mode: "development",
+  devtool:'inline-source-map',
   devServer: {
     watchFiles: ["src/**/*"],
+    static:{
+      directory:path.resolve(__dirname,'dist')
+    },
+    open:true,
+    hot:true,
+    compress:true
   },
   module: {
     rules: [
@@ -42,8 +52,8 @@ module.exports = {
     }),
   ],
   output: {
+    chunkFilename: '[name].js',
     filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
     clean: true,
   },
 };

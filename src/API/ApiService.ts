@@ -21,6 +21,7 @@ export  function GetFlights() :Observable<FlightDetails[]>
                              };
                     }).slice(0,5);
                     localStorage.setItem('flights',JSON.stringify(flights));
+                    console.log(flights);
                     return flights;
                 }
                 catch{
