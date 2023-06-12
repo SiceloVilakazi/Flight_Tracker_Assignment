@@ -1,4 +1,4 @@
-import {GetFlights,polling} from '../API/ApiService'
+import {GetFlights} from '../API/ApiService'
 import { FlightDetails } from '../Interfaces/FlightDetails';
 import {setFlightCoordinates} from './leaftletmap'
 let flightList = document.getElementById('flight-table');
@@ -7,6 +7,8 @@ let flights :FlightDetails[] = [];
 
 GetFlights().subscribe((result)=>{
     flights=result;
+
+    if(flightList)
      populateTable(flights);
 });
 
@@ -15,14 +17,17 @@ export  function populateTable(flights:FlightDetails[]){
         let lat:number=0, long:number=0;
 
     const flightTable = document.createElement("tr");
-    flightTable.style.borderBottom="double";
+    flightTable.style.borderBottomWidth='1px';
+    flightTable.style.borderColor='rgb(219 234 254)';
+    flightTable.style.padding='1rem';
+    flightTable.style.marginLeft='2rem';
+    flightTable.style.textDecorationColor='rgb(100 116 139)';
     const flightNumber = document.createElement("td");
     flightNumber.innerText = flights[i].flightNumber? flights[i].flightNumber: undefined;
+    flightNumber.style.paddingLeft='2rem';
     flightNumber.style.color="blue";
-    flightNumber.style.textAlign="center";
     const flightCountry = document.createElement("td");
     flightCountry.innerText = flights[i].flightCountry? flights[i].flightCountry:undefined;
-    flightCountry.style.textAlign="center";
     flightTable.appendChild(flightNumber);
     flightTable.appendChild(flightCountry);
     flightList?.appendChild(flightTable);

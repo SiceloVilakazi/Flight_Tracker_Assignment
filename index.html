@@ -8,30 +8,32 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
-
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
+     <script src="https://cdn.tailwindcss.com"></script>
 
- 
     <title>Space Flights</title>
 </head>
-<body>
-    <div class="header">
-        <h1>Wolf Flight Tracker</h1>
+<body class="bg-blue-200">
+  <div class="p-6 max-w-d mx-auto bg-blue-100 rounded-xl shadow-lg flex justify-center space-x-4">
+    <div class="flex">
+      <h1 class="text-xl font-medium text-blue-500 text-center">Wolf flight tracker</h1>
     </div>
+  </div>
 
-    <div class="flights-container">
-        <div>
-            <table id="flight-table">
-                <tr class="flight-table-row">
-                    <th>Flight number</th>
-                    <th>Country</th>
-                </tr>
-               
-            </table>
-        </div>
+    <div class="ml-56 mr-56 mt-4 -mb-3 not-prose relative bg-blue-50 rounded-xl overflow-hidden dark:bg-slate-800/25">
+      <div class="relative rounded-xl overflow-auto shadow-sm overflow-hidden my-8">
+          <table id="flight-table" class="border-collapse table-auto w-64 text-sm">
+            <tr>
+              <th class="border-b dark:border-blue-600 font-medium p-4 pl-8 pt-0 pb-3 text-blue-400 dark:text-blue-200 text-left">Flight Number</th>
+              <th class="border-b dark:border-blue-600 font-medium p-4 pt-0 pb-3 text-blue-400 dark:text-blue-200 text-left">Country</th>
+            </tr>
+           
+        </table>
     </div>
+  </div>
+
    <div class="map-container">
     <div id="map">
 
